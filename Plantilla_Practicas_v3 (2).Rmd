@@ -289,5 +289,17 @@ unzip( 'data/iris.zip', exdir='data/')
 
 
 
+# 6 Fichero data iris.data
+
+## 6.1 Importación del fichero
+
+```{r}
+
+iris <- read.table('data/iris.data', sep=',')
+
+
+```
+
+
 
 
