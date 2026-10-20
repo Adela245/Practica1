@@ -233,6 +233,18 @@ save(bakery_sales_revised, file= 'data/BreadBasket.RData')
 str(bakery_sales_revised) # Vemos el tipo de dato de cada columna
 ```
 
+## 3.2 Inspección de los datos
+
+```{r}
+head(bakery_sales_revised) #vemos los 6 primeros datos
+
+
+tail(bakery_sales_revised) #los 6 ultumos datos
+
+summary(bakery_sales_revised) #se calculan los distintos estadisticos 
+
+
+```
 
 
 
