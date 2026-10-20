@@ -221,6 +221,17 @@ tail(datos2.2)
 #Me da error pero da datos estadisticos como la media, mediana, desviación
 ```
 
+# 3 Fichero Transactions from a Bakery (Kaggle)
+
+## 3.1 Importación del fichero
+
+```{r}
+library(readr)
+bakery_sales_revised <- read_csv("data/bakery_sales_revised.csv")
+View(bakery_sales_revised)
+```
+
+
 
 
 
