@@ -1,0 +1,228 @@
+---
+title: "Práctica 1"
+author: "Adela Ayala Cutillas"
+date: "`r Sys.Date()`"
+output:
+  bookdown::pdf_document2:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    figure_caption: "Figura" # Referencias en castellano
+    table_caption: "Tabla"
+  html_document:
+    echo: true
+    number_sections: true
+    theme: lumen
+    toc: true
+  html_notebook:
+    echo: true
+    number_sections: true
+    toc: true
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+  bookdown::html_document2:
+    echo: true
+    number_sections: true
+    theme: spacelab
+    toc: true
+    figure_caption: "Figura"
+    table_caption: "Tabla"
+always_allow_html: true
+params:
+  lang: ES
+lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
+subtitle: "Introducción a la Ciencia de Datos. Máster en Ciencia de Datos- UV"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota: '
+    solution: 'Solución. '
+---
+
+# Introducción
+
+Este documento explicativo te puede servir de plantilla para la realización de proyectos con *Rmarkdown* para la realizacón de memorias de práctica, tareas, etc. Pretende ser autoexplicativo.
+
+# Estructura del fichero
+
+El bloque inicial separado entre 3 guiones, se denomina cabecera YALM y determina el formato y tipo de documento generado Las opciones dependen del tipo de documento. Un documento que te ayudará a opciones más complejas lo puedes encontrar en este enlace <https://bookdown.org/yihui/rmarkdown/>
+
+**NOTA**: Los espacios iniciales son imprescindibles. El documento debe empezar por los guiones (no puede haber comentarios previos)
+
+**title**: "Pon un título a tu documento"\
+**subtitle**: Tratamiento de Datos. Grado en Ciencia de Datos- UV\
+**author**: "Pon aquí tu nombre y apellidos"
+
+Pone la fecha de generación del documento
+
+**date**: "`r Sys.Date()`" Pondría la fecha del día actual. También se puede poner fija "01/02/2021"
+
+Cambio de idioma para que en lugar de "Contents" ponga "Indice" al incluir la tabla de contenido
+
+**params**: **lang**: ES\
+**lang**: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
+
+En este ejemplo, por defecto se generará una salida html, que es la que está descomentada. Si si quieres otras salidas o varias de ellas descomenta lo que proceda
+
+**output:** Salida(s) generadas
+
+[*Salida pdf*]{.underline}*. Si se incluye código en LaTeX necesitarás tener instalado un compilador de Latex*\
+
+**pdf_document**:\
+**toc**: yes Tabla de contenido (índice)\
+**toc_depth**: 3 Número de niveles de la tabla de contenido (índice) \# 1, ##2,###3\
+**number_sections**: yes Numeración de las secciones
+
+[Salida html_document]{.underline}:\
+**echo**: yes **number_sections**: yes\
+**theme**: lumen Aspecto y estilo. Otras opciones: *cerulean, journal, flatly, darkly, readable, spacelab, united, cosmo, lumen, paper, sandstone, simplex, and yeti*\
+**toc**: yes
+
+[*Salida html_notebook*]{.underline}*, como html, pero con algunas opciones de visualización*
+
+**bookdown::html_document2:** Versión enriquecida de html que permite numerar figuras, referenciar, etc. <https://bookdown.org/yihui/bookdown/> **bookdown::pdf_document2:** Versión enriquecida de pdf que permite numerar figuras, referenciar, etc.
+
+Las opciones siguientes nos permiten traducir estas etiquetas para que aparezcan en otro idioma en caso de que se usen en el documento para referenciar a figuras, tablas, etc.
+
+**language:**\
+**label:** **fig:** 'Figura '\
+**tab:** 'Tabla '\
+**eq:** 'Ecuación '\
+**thm:** 'Teorema '\
+**lem:** 'Lema '\
+**def:** 'Definición '\
+**cor:** 'Corolario '\
+**prp:** 'Proposición '\
+**exm:** 'Ejemplo '\
+**exr:** 'Ejercicio '\
+**proof:** 'Demostración. '\
+**remark:** 'Nota: '\
+**solution:** 'Solución. '
+
+# Configuración del los bloques (*Chunks*)
+
+Cada bloque tiene muchos parámetros que pueden ser configurados
+
+**eval** = **FALSE** evita que el código se ejecute.
+
+**include** = **FALSE** evita que el código y los resultados aparezcan en el archivo terminado. R Markdown aún ejecuta el código en el fragmento y los resultados pueden ser utilizados por otros fragmentos.
+
+**echo = FALSE** evita que el código, pero no los resultados, aparezcan en el archivo terminado. Esta es una manera útil de incrustar figuras.
+
+**message = FALSE** evita que los mensajes generados por el código aparezcan en el archivo finalizado.
+
+**warning = FALSE** evita que las advertencias generadas por el código aparezcan en el final.
+
+**fig.cap = "..."** agrega un título a los resultados gráficos.
+
+Se pueden especificicar opciones generales por defecto en *opts_chunk\$set*
+
+Más opciones en el enlace [\<https://bookdown.org/yihui/rmarkdown/\>](https://bookdown.org/yihui/rmarkdown/){.uri}
+
+```{r setup, cache = F, echo = F, message = F, warning = F, tidy = F}
+
+
+# CONFIGURACIÓN GENERAL
+library(knitr)
+options(width = 100)
+
+# Opciones generales de los chucks. Se utilizarán salvo cambios en el chunk
+opts_chunk$set(echo=F, message = F, error = F, warning = F, comment = NA, fig.align = 'center', dpi = 200, tidy = F, cache.path = '.cache/', fig.path = './figura/')
+
+# Opciones generales de dígitos cuando se incluyen tablas
+#options(xtable.type = 'html')
+knit_hooks$set(inline = function(x) {
+  
+  if(is.numeric(x)) {
+    round(x, getOption('digits'))
+  } else {
+    paste(as.character(x), collapse = ', ')
+  }
+})
+#knit_hooks$set(plot = knitr:::hook_plot_html)
+```
+
+
+# 1 Introducción del trabajo
+
+El objetivo de esta práctica es realizar la importación de ficheros con diferentes formatos, organizar los datos en un **data frame**, y almacenarlo en un fichero tipo **RData**.
+
+# 2 Ejemplo: fichero *DFP1_11122015 124700.csv*
+
+## 2.1 Importación del fichero
+
+1.  Usar la herramienta de importación para previsualizar el resultado final. Compara las opciones *base* y *readr*.
+
+    ```{r}
+    # Lo hemos importado usadno la herramienta de importación. Escribimos el código para que no de error en el caso de obtener el pdf
+
+    library(readr) #para la opción readr necesitamos la librería
+    datos2.1 <- read_delim("data/DFP1_11122015 124700.csv", quote="\t")
+    View(datos2.1)
+
+    #usando base
+    datos2.2 <- read.csv("data/DFP1_11122015 124700.csv", sep='\t')
+    View(datos2.2)
+
+
+    ```
+
+La diferencia es que con readr podemos ver el tipo de variable de las columnas
+
+2.  Leer el fichero con `read.csv` y el parámetro `stringsAsFactors=F`.
+
+```{r}
+datos2.2 <- read.csv("data/DFP1_11122015 124700.csv", stringsAsFactors = F, sep='\t')
+View(datos2.2)
+```
+
+3.  Convertir fecha y hora con [`as.POSIXlt`](http://rdrr.io/r/base/as.POSIXlt.html) y [`as.hms` (`hms` library)](https://cran.r-project.org/web/packages/hms/refman/hms.html).
+
+```{r}
+library(hms)
+
+datos2.2$FECHA <- as.POSIXlt(datos2.2$FECHA)
+datos2.2$HORA <- as.hms(datos2.2$HORA)
+```
+
+4.  Almacenar con `save` en una carpeta con nombre results dentro de la carpeta data.
+
+```{r}
+save(datos2.2, file='data/results/Deposito.RData')
+```
+
+## 2.2 Inspección de los datos
+
+```{r}
+# Uso los datos modificados 
+
+str(datos2.2)
+# Devuelve el tipo de cada variable
+
+head(datos2.2)
+# Ve las primeras 6 instancias del dataframe
+
+tail(datos2.2)
+# Ve las ultimas 6 instancias del dataframe
+
+#summary(datos2.2)
+#Me da error pero da datos estadisticos como la media, mediana, desviación
+```
+
+
+
+
+
+
