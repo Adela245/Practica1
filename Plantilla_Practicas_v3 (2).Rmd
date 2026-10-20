@@ -229,7 +229,10 @@ tail(datos2.2)
 library(readr)
 bakery_sales_revised <- read_csv("data/bakery_sales_revised.csv")
 View(bakery_sales_revised)
+save(bakery_sales_revised, file= 'data/BreadBasket.RData')
+str(bakery_sales_revised) # Vemos el tipo de dato de cada columna
 ```
+
 
 
 
