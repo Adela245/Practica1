@@ -255,7 +255,7 @@ library(haven)
 PsychBike <- read_sav("data/PsychBike.sav")
 View(PsychBike)
 
-save(PsychBike, file= 'data/PsychBike.RData')
+save(PsychBike, file= 'data/results/PsychBike.RData')
 ```
 
 
@@ -378,6 +378,17 @@ tail(iris_json)
 summary(iris_json)
 ```
 
+## 8.3 exportar datos en formato JSON
+
+```{r}
+cargar_iris <-load('data/results/iris.RData')
+write_json(cargar_iris,'data/results/iris_json.json' )
+
+
+
+
+
+```
 
 
 
