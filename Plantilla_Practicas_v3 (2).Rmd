@@ -300,6 +300,11 @@ iris <- read.table('data/iris.data', sep=',')
 
 ```
 
+Cambia el nombre de las columnas por las que corresponda a la base datos (mirar la información en la página web).
+
+```{r}
+colnames(iris) <- c('sepal length', 'sepal width', 'petal length', 'petal width', 'class')
+```
 
 
 
