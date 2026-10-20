@@ -339,3 +339,15 @@ save(json, file= 'data/results/FileCodificado.RData')
 
 ```
 
+## 7.3 Inspección de los datos
+
+```{r}
+dim(json)
+
+str(json)
+head(json)
+tail(json)
+summary(json)
+
+```
+
