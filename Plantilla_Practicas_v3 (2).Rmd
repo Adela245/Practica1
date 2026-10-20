@@ -369,3 +369,15 @@ save(iris_json, file= 'data/results/iris.Rdata')
 ```
 
 
+## 8.2 Inspeccion de los datos
+
+```{r}
+str(iris_json)
+head(iris_json)
+tail(iris_json)
+summary(iris_json)
+```
+
+
+
+
