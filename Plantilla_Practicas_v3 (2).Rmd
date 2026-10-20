@@ -314,4 +314,12 @@ save(iris, file= 'data/results/Iris1.RData')
 
 
 
+## 6.2 Inspección de los datos
+```{r}
+
+str(iris)
+head(iris)
+tail(iris)
+summary(iris)
+```
 
