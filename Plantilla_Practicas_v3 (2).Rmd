@@ -246,6 +246,17 @@ summary(bakery_sales_revised) #se calculan los distintos estadisticos
 
 ```
 
+# 4 Fichero SPSS PsychBike.sav
+
+```{r}
+library(haven)
+PsychBike <- read_sav("data/PsychBike.sav")
+View(PsychBike)
+
+save(PsychBike, file= 'data/PsychBike.RData')
+```
+
+
 
 
 
