@@ -306,5 +306,12 @@ Cambia el nombre de las columnas por las que corresponda a la base datos (mirar 
 colnames(iris) <- c('sepal length', 'sepal width', 'petal length', 'petal width', 'class')
 ```
 
+Guarda el data frame con save en la carpeta results.
+
+```{r}
+save(iris, file= 'data/results/Iris1.RData')
+```
+
+
 
 
