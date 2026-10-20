@@ -351,3 +351,21 @@ summary(json)
 
 ```
 
+
+# 8 Fichero JSON iris_json.json
+
+## 8.1 Importar el fichero iris_json.json
+
+Importa el fichero a R con fromJSON. ¿Que diferencia hay entre read_json y fromJSON?
+```{r}
+library(jsonlite)
+iris_json <- read_json('data/iris_json.json' , simplifyVector = TRUE)
+
+iris_json2 <- fromJSON('data/iris_json.json')
+
+# LA diferencia es que fromJSON lleva por defecto en TRUE simplifyVector
+
+save(iris_json, file= 'data/results/iris.Rdata')
+```
+
+
