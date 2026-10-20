@@ -322,4 +322,18 @@ head(iris)
 tail(iris)
 summary(iris)
 ```
+# 7 Fichero JSON FileCodificado.json
+
+## 7.1 Importación del fichero
+
+
+```{r}
+
+library(jsonlite)
+
+json <- read_json('data/FileCodificado.json' , simplifyVector = TRUE)
+View(json)
+
+# Es necesario el parametro para una correcta visualizacion
+```
 
