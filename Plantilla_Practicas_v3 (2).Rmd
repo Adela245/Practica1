@@ -269,6 +269,16 @@ str(PsychBike)
 ```
 
 
+# 5 Fichero data iris.zip
+
+Visualiza la pagina web de los datos Iris del repostorio de UCI Machine Learning, copia el link de descarga y guarda el archivo zip en la carpeta data.
+```{r}
+
+url <- 'https://archive.ics.uci.edu/static/public/53/iris.zip'
+
+download.file(url, destfile = 'data/iris.zip')
+```
+
 
 
 
