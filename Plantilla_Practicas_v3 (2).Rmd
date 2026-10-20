@@ -335,5 +335,7 @@ json <- read_json('data/FileCodificado.json' , simplifyVector = TRUE)
 View(json)
 
 # Es necesario el parametro para una correcta visualizacion
+save(json, file= 'data/results/FileCodificado.RData')
+
 ```
 
