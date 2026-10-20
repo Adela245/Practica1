@@ -279,6 +279,13 @@ url <- 'https://archive.ics.uci.edu/static/public/53/iris.zip'
 download.file(url, destfile = 'data/iris.zip')
 ```
 
+## 5.1 Descomprimir el fichero
+
+Utiliza la funcion unzip para descoprimirlo en la carpeta data.
+
+```{r}
+unzip( 'data/iris.zip', exdir='data/')
+```
 
 
 
